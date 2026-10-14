@@ -1,9 +1,9 @@
-# Ensure these general folders doesnt show up on Github
+# Ensure these general things doesnt show up on Github
 node_modules/
-package-lock/
+package-lock.json
 
 # Make sure the env files are safe
 .env
 
 # Ignore my note files (don't want those showing up)
-ProjectNotes.md
+Project Notes/
