@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Dailies - Profile Selection</title>
+
+    <!-- Adding Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/profile_select.css">
 </head>
 <body>
-    <h1>Hello !!!</h1>
-    <h2>This is a test for the Electron window!!</h2>
 
     <!-- this is the main landing page when opening the app for the first time (and in the future) -->
 
@@ -19,7 +24,40 @@
     <!-- the right half will either be the users profile pic and username (if they have an account)
     or an "add new account" button  -->
 
-    <!-- nothing fancy really happens on this page -->
+    <section id="profileSelectPage" class="vh-100">
+        <div class="container-fluid h-100">
+            <div class="row h-100 g-0">
+
+            <!-- Left panel -->
+            <div class="col-5 d-flex flex-column justify-content-center align-items-center">
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <img src="../assets/images/gamer-dailies-logo.png" class="app-logo" alt="Gamer Dailies logo">
+                    <span class="fs-3">Gamer Dailies</span>
+                </div>
+                <p class="text-center welcome-text">
+                Get started by creating an account and adding a new profile!
+                </p>
+            </div>
+
+            <!-- Divider line -->
+            <div class="vr divider-line"></div>
+
+            <!-- Right panel -->
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <a id="addNewProfile" href="sign_up.html"
+                class="add-profile-btn d-flex flex-column justify-content-center align-items-center
+                        rounded-circle border border-2 border-dark text-dark text-decoration-none">
+                    <span class="fw-bold fs-5">+</span>
+                    <span class="fw-bold small">Add New Profile</span>
+                </a>
+
+                <!-- temporary link to admin page for viewing/testing REMOVE LATER-->
+                <a href="admin/admin_dashboard.html" class="mt-5 small">[TEMPORARY] View Admin Page</a>
+            </div>
+
+            </div>
+        </div>
+    </section>
     
 </body>
 </html>

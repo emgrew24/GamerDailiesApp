@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Dailies - Sign In</title>
+    
+    <!-- Adding Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Adding custom CSS -->
+
 </head>
 <body>
     
@@ -12,6 +18,36 @@
     <!-- its pretty simple design wise -->
 
     <!-- there will be authentication involved of course -->
+    <section>
+        <main>
+            <div id="signInContainer" style="background-color: lightseagreen;">  <!-- temp color -->
+                <h1>Log In</h1>
+                <hr>
+                <form id="signInSection">
+                    <label for="name">Username:</label>
+                    <input type="text" id="username"><br>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password"><br><br>
+
+                    <button type="submit" id="signInBtn"><strong>  <a href="dashboard.html">Sign In</a>  </strong></button><br>
+                    <!-- temp link straight to the dashboard -->
+                    <!-- REMOVE WHEN BACKEND WORK IS DONE -->
+                </form>
+
+                <p id="errorMsg" style="color:red;"></p>
+                <p id="successMsg" style="color:green;"></p>
+
+                <p>Don't have an account? <a href="sign_up.html">Sign Up Now!</a></p>
+            </div>
+        </main>
+
+        <!-- Not sure if I want a footer like this yet -->
+        <footer>
+            <h3>&copy;2026 Shark Studios</h3>
+        </footer>
+
+    </section>
 
 </body>
 </html>

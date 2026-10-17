@@ -1,0 +1,29 @@
+.app-logo {
+  height: 72px;
+  width: 72px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+}
+
+.welcome-text {
+  max-width: 250px;
+}
+
+.divider-line {
+  align-self: center;
+  height: 80%;
+  opacity: 1;            
+  background-color: #000;
+}
+
+.add-profile-btn {
+  width: 130px;
+  height: 130px;
+  background-color: #c4c4c4;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.add-profile-btn:hover {
+  background-color: #b0b0b0;
+}

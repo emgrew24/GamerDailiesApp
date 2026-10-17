@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Dailies - Dashboard</title>
+    
+    <!-- Adding Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+
 </head>
 <body>
     
@@ -15,6 +23,75 @@
     and display the top 3-5 upcoming reminders -->
 
     <!-- the lower half will display the most recently opened/edited lists  -->
+
+    <div class="d-flex vh-100">
+
+        <!-- Sidebar -->
+        <aside class="sidebar d-flex flex-column p-3">
+            <div class="d-flex align-items-center gap-2 pb-3 sidebar-divider">
+            <i class="bi bi-person-circle fs-1"></i>
+            <span id="profileName" class="small">Dashboard</span>
+            </div>
+
+            <nav class="d-grid gap-3 mt-4">
+            <a href="all_lists.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Lists</a>
+            <a href="all_reminders.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Reminders</a>
+            </nav>
+
+            <div class="mt-auto d-flex flex-column align-items-center gap-2">
+            <a href="settings.html" class="btn btn-secondary btn-sm fw-bold">
+                <i class="bi bi-gear-fill"></i> Settings
+            </a>
+            <a href="profile_select.html" class="btn btn-danger btn-sm">Switch profile</a>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="flex-grow-1 d-flex flex-column overflow-hidden">
+
+            <!-- Welcome Banner -->
+            <header class="welcome-banner px-4 py-3">
+            <h1 class="display-5 mb-0">Welcome Back!</h1>
+            <p class="mb-0 small">How will you organize today?</p>
+            </header>
+
+            <div class="flex-grow-1 overflow-auto px-4 py-4">
+
+            <!-- Create New List/Reminder Buttons & Upcoming Reminders -->
+            <div class="row pb-4 section-divider">
+
+                <div class="col-md-5 d-flex justify-content-center gap-5">
+                    <div>
+                        <a href="reminder.html" class="quick-action text-dark text-decoration-none text-center">
+                            <div class="action-tile"><i class="bi bi-alarm-fill"></i></div>
+                        </a>
+                        <small class="fw-bold">+ New Reminder</small>
+                    </div>
+               
+                <a href="list.html" class="quick-action text-dark text-decoration-none text-center">
+                    <div class="action-tile"><i class="bi bi-file-earmark-text-fill"></i></div>
+                    <small class="fw-bold">+ New List</small>
+                </a>
+                </div>
+
+                <div class="col-md-6 reminders-col ps-4">
+                <h2 class="h5 mb-3">Upcoming Reminders</h2>
+                <div id="upcomingReminders" class="d-grid gap-3"></div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <h2 class="h3 mt-4 mb-3">Recent Activity</h2>
+            <div id="recentLists" class="row row-cols-2 row-cols-xl-4 g-4"></div>
+
+            </div>
+        </main>
+    </div>
+
+
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
 
 </body>
 </html>
