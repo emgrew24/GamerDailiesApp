@@ -1,0 +1,102 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background-color: #ebebeb;
+  border-right: 2px solid #000;
+}
+.sidebar-divider { border-bottom: 1px solid #333; }
+
+.welcome-banner { background-color: #dcebd2; }
+
+.section-divider { border-bottom: 1px solid #999; }
+.reminders-col { border-left: 2px dotted #000; }
+
+/* Quick action + list tiles */
+.action-tile,
+.list-tile {
+  background-color: #c4c4c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+}
+.action-tile {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+.list-tile {
+  aspect-ratio: 1 / 1;
+  max-width: 160px;
+  border: 2px solid #000;
+  border-radius: 22px;
+  font-size: 5rem;
+}
+
+.quick-action:hover .action-tile { background-color: #b0b0b0; }
+
+.list-tile {
+  background-color: #c4c4c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  text-decoration: none;
+  aspect-ratio: 1 / 1;
+  max-width: 160px;
+  border: 2px solid #000;
+  border-radius: 22px;
+  font-size: 5rem;
+}
+
+.list-tile:hover {
+  background-color: #b0b0b0;
+  color: #444;
+}
+
+/* Same Styling As Dashboard (above) */
+
+.page-divider { border-bottom: 1px solid #999; }
+
+/* Tile & caption row share the same width so the ⋮ sits at the tile's right edge */
+.list-item { max-width: 160px; }
+.list-item .list-tile { width: 100%; }
+
+.kebab-btn {
+  color: #000;
+  line-height: 1;
+}
+.kebab-btn:hover { color: #555; }
+
+/* Keep the menu compact */
+.list-item .dropdown-menu {
+  --bs-dropdown-min-width: 7rem;
+  --bs-dropdown-font-size: 0.8rem;
+}
+
+
+/* Selection circles (only visible in manage mode) */
+.tile-wrap { position: relative; }
+
+.select-circle {
+  display: none;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  z-index: 2;
+}
+.select-circle.selected { background-color: #56ccf2; }
+
+.manage-mode .select-circle { display: block; }
+.manage-mode .list-tile { cursor: pointer; }
+
+/* Hide the ⋮ menus while managing */
+.manage-mode .list-item .dropdown { display: none; }

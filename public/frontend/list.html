@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Dailies - List</title>
+
+    <!-- Adding Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/list.css">
 </head>
 <body>
     
     <!-- this page is where the user will be making/viewing/editing their lists -->
-
-    <!-- the sidebar (left) on the other pages can be hidden with a toggle so users can get 
-    a better look at their list page -->
 
     <!-- there will be another small sidebar (right) that can be toggled that gives the user options
     to add to their list page (ex. headings, paragraph, bullet points, dividers, and so on) -->
@@ -19,10 +23,94 @@
 
     <!-- users can edit the list at any point -->
 
+    <div class="d-flex vh-100">
 
-    <h1>This is the list page</h1>
-    <h2>The user can make a new list</h2>
-    <a href="dashboard.html">Back To Dashboard</a>
+        <!-- Sidebar (same as other pages) -->
+        <aside class="sidebar d-flex flex-column p-3">
+            <div class="d-flex align-items-center gap-2 pb-3 sidebar-divider">
+            <i class="bi bi-person-circle fs-1"></i>
+            <span id="profileName" class="small">Dashboard</span>
+            </div>
+
+            <nav class="d-grid gap-3 mt-4">
+            <a href="all_lists.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Lists</a>
+            <a href="all_reminders.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Reminders</a>
+            </nav>
+
+            <div class="mt-auto d-flex flex-column align-items-center gap-2">
+            <a href="settings.html" class="btn btn-secondary btn-sm fw-bold">
+                <i class="bi bi-gear-fill"></i> Settings
+            </a>
+            <a href="profile_select.html" class="btn btn-danger btn-sm">Switch profile</a>
+            </div>
+        </aside>
+
+        <!-- Main area: editor + collapsible tool panel -->
+        <main class="flex-grow-1 d-flex overflow-hidden">
+
+            <div id="editorScroll" class="flex-grow-1 overflow-auto px-4 pt-3 pb-4">
+
+            <!-- Top row -->
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="dashboard.html" class="text-dark text-decoration-none d-inline-flex align-items-center gap-2">
+                <i class="bi bi-arrow-left-circle fs-5"></i> Dashboard
+                </a>
+                <button id="saveListBtn" type="button" class="btn btn-success btn-sm fw-bold px-4">Save</button>
+            </div>
+
+            <!-- Title + panel toggle -->
+            <div class="d-flex align-items-start gap-3 mt-2">
+                <div class="flex-grow-1">
+                <label for="listTitle" class="visually-hidden">List title</label>
+                <input id="listTitle" type="text" maxlength="80" placeholder="Add Title"
+                        class="form-control title-input border-0 shadow-none bg-transparent p-0">
+                <div id="titleError" class="text-danger small d-none">Please add a title before saving.</div>
+                </div>
+
+                <button id="openPanelBtn" type="button" class="btn btn-light border border-2 border-dark rounded-2 p-1 lh-1 fs-5"
+                        aria-expanded="false" aria-controls="toolPanelWrap" aria-label="Open text and list options">
+                <i class="bi bi-arrow-left-circle"></i>
+                </button>
+            </div>
+
+            <!-- The editable area -->
+            <div id="editor" class="list-editor mt-4" contenteditable="true" role="textbox" aria-multiline="true"
+                aria-label="List content" data-placeholder="Start typing, or open the options panel to add headings, bullet points, and tables."></div>
+            </div>
+
+            <!-- Collapsible tool panel -->
+            <div id="toolPanelWrap" class="tool-panel-wrap" inert>
+            <div class="tool-panel">
+
+                <button id="closePanelBtn" type="button" class="btn btn-link text-dark p-0 fs-5 lh-1 mb-2" aria-label="Close options panel">
+                <i class="bi bi-arrow-right-circle"></i>
+                </button>
+
+                <div class="panel-heading small">Text Options</div>
+                <button type="button" class="panel-item" data-cmd="h1"><span class="fs-4">Heading 1</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="h2"><span class="fs-5">Heading 2</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="h3"><span class="fs-6">Heading 3</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="h4"><span class="small">Heading 4</span><i class="bi bi-plus-lg"></i></button>
+
+                <div class="panel-heading small mt-3">List Options</div>
+                <button type="button" class="panel-item" data-cmd="bullets"><span><i class="bi bi-list-ul me-2"></i>Bullet points</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="square"><span><i class="bi bi-list-ul me-2"></i>Square bullet points</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="numbered"><span><i class="bi bi-list-ol me-2"></i>Numbered list</span><i class="bi bi-plus-lg"></i></button>
+
+                <div class="panel-heading small mt-3">Other Options</div>
+                <button type="button" class="panel-item" data-cmd="table"><span><i class="bi bi-table me-2"></i>Table</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="quote"><span><i class="bi bi-quote me-2"></i>Quote</span><i class="bi bi-plus-lg"></i></button>
+                <button type="button" class="panel-item" data-cmd="divider"><span><i class="bi bi-dash-lg me-2"></i>Divider line</span><i class="bi bi-plus-lg"></i></button>
+            </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Pops up when text is highlighted -->
+    <div id="selectionBar" class="selection-bar d-none" role="toolbar" aria-label="Text background color"></div>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/list.js"></script>
     
 </body>
 </html>

@@ -6,7 +6,15 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
-    icon: path.join(__dirname, 'public/assets/images/gamer-dailies-logo.png') // Change window icon
+    icon: path.join(__dirname, 'public/assets/images/gamer-dailies-logo.png'), // Change window icon
+
+    // Create a custom top bar of the window (which I will come back to)
+    // titleBarStyle: 'hidden',
+    // titleBarOverlay: {
+    //   color: '#404244',
+    //   symbolColor: '#ffffff',
+    //   height: 40,
+    // },
   })
 
   win.setMenuBarVisibility(false) // Hide menu bar thats automatically added

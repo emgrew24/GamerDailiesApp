@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Dailies - Reminder</title>
+
+    <!-- Adding Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/reminder.css">
 </head>
 <body>
 
@@ -15,9 +22,167 @@
     exisiting reminder is that the info will already be filled in when the 
     user gets to this page if they are editing -->
 
-    <h1>This is the reminder page</h1>
-    <h2>The user can make a new reminder</h2>
-    <a href="dashboard.html">Back To Dashboard</a>
+    <div class="d-flex vh-100">
+
+        <!-- Sidebar (same as other pages) -->
+        <aside class="sidebar d-flex flex-column p-3">
+            <div class="d-flex align-items-center gap-2 pb-3 sidebar-divider">
+            <i class="bi bi-person-circle fs-1"></i>
+            <span id="profileName" class="small">Dashboard</span>
+            </div>
+
+            <nav class="d-grid gap-3 mt-4">
+            <a href="all_lists.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Lists</a>
+            <a href="all_reminders.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Reminders</a>
+            </nav>
+
+            <div class="mt-auto d-flex flex-column align-items-center gap-2">
+            <a href="settings.html" class="btn btn-secondary btn-sm fw-bold">
+                <i class="bi bi-gear-fill"></i> Settings
+            </a>
+            <a href="profile_select.html" class="btn btn-danger btn-sm">Switch profile</a>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-grow-1 overflow-auto px-4 pb-4">
+            <div id="formWrap" class="reminder-form-wrap reminder-teal mx-auto">
+
+            <!-- Icon tab that sits on top of the card -->
+            <div class="icon-tab"><i id="tabIcon" class="bi bi-alarm-fill"></i></div>
+
+            <form id="reminderForm" class="reminder-form-card" novalidate>
+
+                <!-- Top section: title, description, color, icon -->
+                <div class="row g-4 pb-4 form-divider">
+                <div class="col-md-7 d-grid gap-3">
+                    <div>
+                    <label for="titleInput" class="visually-hidden">Title</label>
+                    <input id="titleInput" type="text" class="form-control border-2 border-dark rounded-3"
+                            placeholder="Title" maxlength="60" required>
+                    <div class="invalid-feedback">Please enter a title.</div>
+                    </div>
+                    <div>
+                    <label for="descInput" class="visually-hidden">Description</label>
+                    <textarea id="descInput" class="form-control border-2 border-dark rounded-3" rows="3"
+                                placeholder="Description (optional)" maxlength="300"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-5 d-flex flex-column justify-content-center align-items-end gap-3">
+                    <!-- Color picker -->
+                    <div class="d-flex align-items-center gap-3">
+                    <span class="small">Color:</span>
+                    <div class="dropdown">
+                        <button id="colorBtn" type="button" class="color-swatch reminder-teal"
+                                data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose color"></button>
+                        <div class="dropdown-menu dropdown-menu-end p-2">
+                        <div id="colorOptions" class="d-flex flex-wrap gap-2 picker-grid"></div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Icon picker -->
+                    <div class="d-flex align-items-center gap-3">
+                    <span class="small">Icon:</span>
+                    <div class="dropdown">
+                        <button id="iconBtn" type="button" class="icon-btn"
+                                data-bs-toggle="dropdown" aria-expanded="false" aria-label="Choose icon">
+                        <i class="bi bi-alarm-fill"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end p-2">
+                        <div id="iconOptions" class="d-flex flex-wrap gap-2 picker-grid"></div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Bottom section: schedule + calendar -->
+                <div class="row g-4 pt-4">
+
+                <div class="col-md-6 d-grid gap-3 align-content-start">
+
+                    <div class="d-flex align-items-center justify-content-between">
+                    <label for="allDayToggle" class="small mb-0">All-day</label>
+                    <div class="form-check form-switch m-0">
+                        <input id="allDayToggle" class="form-check-input" type="checkbox" role="switch">
+                    </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                    <label for="startDate" class="small schedule-label">Starts:</label>
+                    <input id="startDate" type="date" class="form-control form-control-sm rounded-pill border-dark text-center" required>
+                    <input id="startTime" type="time" class="form-control form-control-sm rounded-pill border-dark text-center time-input" value="08:00">
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                    <label for="endDate" class="small schedule-label">Ends:</label>
+                    <input id="endDate" type="date" class="form-control form-control-sm rounded-pill border-dark text-center" required>
+                    <input id="endTime" type="time" class="form-control form-control-sm rounded-pill border-dark text-center time-input" value="09:00">
+                    </div>
+                    <div id="dateError" class="text-danger small d-none">The end must be after the start.</div>
+
+                    <div class="d-flex align-items-center gap-2">
+                    <label for="repeatSelect" class="small schedule-label">Repeat</label>
+                    <select id="repeatSelect" class="form-select form-select-sm rounded-pill border-dark w-auto">
+                        <option value="never">Never</option>
+                        <option value="day">Every day</option>
+                        <option value="week">Every week</option>
+                        <option value="month">Every month</option>
+                        <option value="2months">Every 2 months</option>
+                        <option value="year">Every year</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    </div>
+
+                    <!-- Only shown when Repeat = Custom -->
+                    <div id="customRepeat" class="d-none d-flex align-items-center gap-2 small">
+                    <span class="schedule-label"></span>
+                    Every
+                    <input id="customInterval" type="number" min="1" value="1"
+                            class="form-control form-control-sm rounded-pill border-dark text-center custom-interval"
+                            aria-label="Repeat interval">
+                    <select id="customUnit" class="form-select form-select-sm rounded-pill border-dark w-auto" aria-label="Repeat unit">
+                        <option value="day">days</option>
+                        <option value="week">weeks</option>
+                        <option value="month">months</option>
+                        <option value="year">years</option>
+                    </select>
+                    </div>
+                </div>
+
+                <!-- Mini calendar -->
+                <div class="col-md-6">
+                    <div class="mini-cal">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <button id="calPrev" type="button" class="btn btn-sm text-white" aria-label="Previous month">
+                        <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <span id="calTitle" class="small fw-bold"></span>
+                        <button id="calNext" type="button" class="btn btn-sm text-white" aria-label="Next month">
+                        <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div id="calGrid" class="cal-grid"></div>
+                    </div>
+                    <p class="small text-muted mt-2 mb-0">Click a day to set the start, then another to set the end.</p>
+                </div>
+                </div>
+
+                <!-- Save / Cancel -->
+                <div class="d-flex justify-content-end gap-2 mt-4">
+                <button type="submit" class="btn btn-success btn-sm fw-bold px-4">Save</button>
+                <a href="all_reminders.html" class="btn btn-secondary btn-sm fw-bold px-4">Cancel</a>
+                </div>
+
+            </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/reminder.js"></script>
     
 </body>
 </html>

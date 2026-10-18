@@ -1,5 +1,5 @@
-// THIS IS ALL PLACEHOLDER DATA UNTIL BACKEND GETS SET UP
-const profile = { name: "Jonathan" };
+// THIS IS ALL PLACEHOLDER DATA FOR TESTING UNTIL BACKEND GETS SET UP
+const profile = { name: "SuperGamer24" };
 
 // Storing reminder data
 const reminders = [
@@ -71,7 +71,7 @@ function renderRecentLists() {
     link.setAttribute("aria-label", list.title);
     link.append(el("i", "bi bi-card-checklist"));
 
-    col.append(link, el("small", "fw-bold d-block mt-2", list.title));
+    col.append(link, el("small", "fw-bold d-block mt-2 text-truncate", list.title));
     container.append(col);
   });
 }

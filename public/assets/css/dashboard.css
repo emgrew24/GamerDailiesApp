@@ -11,7 +11,7 @@
 .section-divider { border-bottom: 1px solid #999; }
 .reminders-col { border-left: 2px dotted #000; }
 
-/* Quick action + list tiles */
+/* Quick Action & List Tiles */
 .action-tile,
 .list-tile {
   background-color: #c4c4c4;

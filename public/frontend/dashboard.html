@@ -27,15 +27,15 @@
     <div class="d-flex vh-100">
 
         <!-- Sidebar -->
-        <aside class="sidebar d-flex flex-column p-3">
+        <aside class="sidebar d-flex flex-column p-3" id="sidebarSection">
             <div class="d-flex align-items-center gap-2 pb-3 sidebar-divider">
-            <i class="bi bi-person-circle fs-1"></i>
-            <span id="profileName" class="small">Dashboard</span>
+                <i class="bi bi-person-circle fs-1"></i>
+                <span id="profileName" class="small">Dashboard</span>
             </div>
 
             <nav class="d-grid gap-3 mt-4">
-            <a href="all_lists.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Lists</a>
-            <a href="all_reminders.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Reminders</a>
+                <a href="all_lists.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Lists</a>
+                <a href="all_reminders.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Reminders</a>
             </nav>
 
             <div class="mt-auto d-flex flex-column align-items-center gap-2">
@@ -51,8 +51,8 @@
 
             <!-- Welcome Banner -->
             <header class="welcome-banner px-4 py-3">
-            <h1 class="display-5 mb-0">Welcome Back!</h1>
-            <p class="mb-0 small">How will you organize today?</p>
+                <h1 class="display-5 mb-0">Welcome Back!</h1>
+                <p class="mb-0 small">How will you organize today?</p>
             </header>
 
             <div class="flex-grow-1 overflow-auto px-4 py-4">
@@ -68,10 +68,10 @@
                         <small class="fw-bold">+ New Reminder</small>
                     </div>
                
-                <a href="list.html" class="quick-action text-dark text-decoration-none text-center">
-                    <div class="action-tile"><i class="bi bi-file-earmark-text-fill"></i></div>
-                    <small class="fw-bold">+ New List</small>
-                </a>
+                    <a href="list.html" class="quick-action text-dark text-decoration-none text-center">
+                        <div class="action-tile"><i class="bi bi-file-earmark-text-fill"></i></div>
+                        <small class="fw-bold">+ New List</small>
+                    </a>
                 </div>
 
                 <div class="col-md-6 reminders-col ps-4">
@@ -82,7 +82,7 @@
 
             <!-- Recent Activity -->
             <h2 class="h3 mt-4 mb-3">Recent Activity</h2>
-            <div id="recentLists" class="row row-cols-2 row-cols-xl-4 g-4"></div>
+            <div id="recentLists" class="row row-cols-3 row-cols-xl-4 g-4"></div>
 
             </div>
         </main>

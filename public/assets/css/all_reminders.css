@@ -1,0 +1,73 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background-color: #ebebeb;
+  border-right: 2px solid #000;
+}
+.sidebar-divider { border-bottom: 1px solid #333; }
+.section-divider { border-bottom: 1px solid #999; }
+
+.reminder-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 3px solid var(--rc);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  font-size: 0.85rem;
+}
+.reminder-icon {
+  background-color: var(--rc);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  font-size: 1.6rem;
+  color: #000;
+}
+.reminder-title { flex-grow: 1; }
+.reminder-meta { padding-right: 0.75rem; text-align: right; white-space: nowrap; }
+
+/* Temp colors */
+.reminder-yellow { --rc: #f2c94c; }
+.reminder-orange { --rc: #f2994a; }
+.reminder-blue   { --rc: #56ccf2; }
+.reminder-green  { --rc: #6fcf97; }
+.reminder-pink   { --rc: #f06eaa; }
+.reminder-teal   { --rc: #6fe3d3; }
+
+.reminder-title { min-width: 0; }  /* lets long titles truncate instead of overflowing */
+
+.column-divider { border-left: 1px solid #999; }
+.page-divider { border-bottom: 1px solid #999; }
+
+/* Manage mode: show edit + on/off controls above each card */
+.reminder-item { position: relative; }
+.reminder-controls { display: none; }
+
+.manage-mode .reminder-item { padding-top: 1.6rem; }
+.manage-mode .reminder-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: absolute;
+  top: 0;
+  right: -4px;
+  z-index: 2;
+}
+
+.reminder-controls .dropdown-menu {
+  --bs-dropdown-min-width: 8rem;
+  --bs-dropdown-font-size: 0.8rem;
+}
+
+/* Swatches in the color picker */
+.color-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: var(--rc);
+}
+.color-swatch:hover { transform: scale(1.1); }

@@ -25,3 +25,7 @@ admin
 - profile select page has bare bones UI and functionality `10/16`
 - sign up/ sign in pages have bare bones UI and test functionality (will be updating next comit)`10/16`
 - dashboard has general UI and test functionality `10/16`
+- the all lists page has basic UI and test functionality `10/17`
+- the all reminders page has basic UI and test functionality `10/17`
+- the reminders page has basic UI and test functionality `10/17`
+- the list page has basic UI and test functionality `10/17`

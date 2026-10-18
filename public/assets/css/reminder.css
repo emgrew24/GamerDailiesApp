@@ -1,0 +1,113 @@
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background-color: #ebebeb;
+  border-right: 2px solid #000;
+}
+.sidebar-divider { border-bottom: 1px solid #333; }
+.section-divider { border-bottom: 1px solid #999; }
+
+/* Temp colors */
+.reminder-yellow { --rc: #f2c94c; }
+.reminder-orange { --rc: #f2994a; }
+.reminder-blue   { --rc: #56ccf2; }
+.reminder-green  { --rc: #6fcf97; }
+.reminder-pink   { --rc: #f06eaa; }
+.reminder-teal   { --rc: #6fe3d3; }
+
+/* Swatches in the color picker */
+.color-swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: var(--rc);
+}
+.color-swatch:hover { transform: scale(1.1); }
+
+/* Card + icon tab (everything uses --rc from the .reminder-<color> class) */
+.reminder-form-wrap {
+  position: relative;
+  max-width: 880px;
+  margin-top: 4.5rem;
+}
+.icon-tab {
+  position: absolute;
+  top: -56px;
+  left: 28px;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--rc);
+  border-radius: 16px 16px 0 0;
+  font-size: 2.4rem;
+  color: #333;
+}
+.reminder-form-card {
+  border: 8px solid var(--rc);
+  border-radius: 48px;
+  background-color: #fff;
+  padding: 2rem 2.5rem;
+}
+.form-divider { border-bottom: 1px solid #999; }
+
+/* Color + icon pickers */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c4c4c4;
+  border: 0;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  color: #444;
+}
+.icon-btn:hover { background-color: #b0b0b0; }
+.picker-grid { max-width: 220px; }
+
+/* Schedule fields */
+.schedule-label { width: 4rem; flex-shrink: 0; }
+.time-input { max-width: 8.5rem; }
+.custom-interval { max-width: 4.5rem; }
+.time-input:disabled { opacity: 0.4; }
+
+/* Mini calendar */
+.mini-cal {
+  position: relative;
+  background-color: #e9e6e6;
+  color: #000;
+  border-radius: 6px;
+  padding: 1.5rem 0.75rem 0.75rem;
+}
+.mini-cal::before {            /* the little "hanging" dot from the wireframe */
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+.cal-weekday { text-align: center; font-size: 0.7rem; color: #aaa; }
+.cal-day {
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #dcdada;
+  color: #000;
+  font-size: 0.75rem;
+}
+.cal-day:hover { background-color: #b9b8b8; }
+.cal-day.in-range { background-color: var(--rc); color: #000; font-weight: bold; }
+.cal-day.today { outline: 2px solid #fff; outline-offset: 1px; }
