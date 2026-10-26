@@ -1,19 +1,10 @@
-.sidebar {
-  width: 240px;
-  flex-shrink: 0;
-  background-color: #ebebeb;
-  border-right: 2px solid #000;
-}
-.sidebar-divider { border-bottom: 1px solid #333; }
-.section-divider { border-bottom: 1px solid #999; }
-
-/* Temp colors */
+/* Temp colors
 .reminder-yellow { --rc: #f2c94c; }
 .reminder-orange { --rc: #f2994a; }
 .reminder-blue   { --rc: #56ccf2; }
 .reminder-green  { --rc: #6fcf97; }
 .reminder-pink   { --rc: #f06eaa; }
-.reminder-teal   { --rc: #6fe3d3; }
+.reminder-teal   { --rc: #6fe3d3; } */
 
 /* Swatches in the color picker */
 .color-swatch {

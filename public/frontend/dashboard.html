@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 
     <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
 
 </head>
@@ -26,25 +27,8 @@
 
     <div class="d-flex vh-100">
 
-        <!-- Sidebar -->
-        <aside class="sidebar d-flex flex-column p-3" id="sidebarSection">
-            <div class="d-flex align-items-center gap-2 pb-3 sidebar-divider">
-                <i class="bi bi-person-circle fs-1"></i>
-                <span id="profileName" class="small">Dashboard</span>
-            </div>
-
-            <nav class="d-grid gap-3 mt-4">
-                <a href="all_lists.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Lists</a>
-                <a href="all_reminders.html" class="btn btn-light border border-dark rounded-pill fw-bold btn-sm">All Reminders</a>
-            </nav>
-
-            <div class="mt-auto d-flex flex-column align-items-center gap-2">
-            <a href="settings.html" class="btn btn-secondary btn-sm fw-bold">
-                <i class="bi bi-gear-fill"></i> Settings
-            </a>
-            <a href="profile_select.html" class="btn btn-danger btn-sm">Switch profile</a>
-            </div>
-        </aside>
+        <!-- Sidebar Template -->
+        <gamer-dailies-sidebar></gamer-dailies-sidebar>
 
         <!-- Main Dashboard Content -->
         <main class="flex-grow-1 d-flex flex-column overflow-hidden">
@@ -74,7 +58,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 reminders-col ps-4">
+                <div class="col-md-6 section-divider-col ps-4">
                 <h2 class="h5 mb-3">Upcoming Reminders</h2>
                 <div id="upcomingReminders" class="d-grid gap-3"></div>
                 </div>
@@ -91,6 +75,7 @@
 
 
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/templates/sidebar.js"></script> 
     <script src="../assets/js/dashboard.js"></script>
 
 </body>

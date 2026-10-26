@@ -4,7 +4,7 @@ const path = require('path')
 // Building the window
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 1200,
+    width: 1220,
     height: 800,
     icon: path.join(__dirname, 'public/assets/images/gamer-dailies-logo.png'), // Change window icon
 

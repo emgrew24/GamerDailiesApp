@@ -1,0 +1,1 @@
+// This is code thats used across multiple pages to keep consistency 

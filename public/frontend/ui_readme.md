@@ -23,9 +23,16 @@ admin
 
 # -- Progress Updates ----
 - profile select page has bare bones UI and functionality `10/16`
-- sign up/ sign in pages have bare bones UI and test functionality (will be updating next comit)`10/16`
+- sign up/ sign in pages have bare bones UI and test functionality `10/16`
 - dashboard has general UI and test functionality `10/16`
 - the all lists page has basic UI and test functionality `10/17`
 - the all reminders page has basic UI and test functionality `10/17`
 - the reminders page has basic UI and test functionality `10/17`
 - the list page has basic UI and test functionality `10/17`
+- updated the signup/ sign in pages to resemble wireframe `10/19`
+- the settings page has basic UI and test functionality `10/26`
+
+- `Note:` I plan to update the UI design later to make it look nicer but for now it
+will just have the basic wireframe design so that I have an interface to work with
+and get the general frontend working.
+

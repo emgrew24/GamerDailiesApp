@@ -1,0 +1,68 @@
+/* This file is for style elements that appear on every user page that are condensed into 
+one big stylesheet as to not clutter the other css files for each page */
+
+:root{
+
+  /* -------- Color Collection -------- */
+
+  /* black & dark greys */
+  --solid-black: #000;
+  --deep-grey: #333;
+  --dark-grey: #444;
+
+  /* white & light greys */
+
+  --solid-white: #fff;
+
+  /* bright colors */
+  --bright-pink: #f06eaa;
+  --bright-orange: #f2994a;
+  --bright-yellow: #f2c94c;
+  --bright-green: #6fcf97;
+  --bright-teal: #6fe3d3;
+  --bright-blue: #56ccf2;
+  --bright-purple: #D15BEE;
+
+
+  /* gamer dailies colors */
+  --gmd-dark-green: #2E4819;
+  --gmd-light-green: #9CE872;
+  --gmd-dark-yellow: #906207;
+  --gmd-bright-yellow: #FEDD58;
+  --gmd-light-yellow: #FDF1B5;
+
+}
+
+
+
+/* Styles For The Sidebar */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background-color: #ebebeb;
+  /* border-right: 2px solid var(--solid-black); */   
+  /* ^-- turn back on to see sidebar border (looks cleaner without) */
+}
+.sidebar-divider { border-bottom: 1px solid #333; }
+
+.sidebar-profile:hover span { text-decoration: underline; }
+.sidebar-profile:focus-visible { outline: 2px solid var(--solid-black); outline-offset: 2px; }
+/* ------------------------ */
+
+
+.section-divider { border-bottom: 1px solid #999; }
+
+
+.welcome-banner { background-color: #dcebd2; }
+
+
+/* Temp colors */
+.reminder-pink   { --rc: var(--bright-pink); }
+.reminder-orange { --rc: var(--bright-orange); }
+.reminder-yellow { --rc: var(--bright-yellow); }
+.reminder-green  { --rc: var(--bright-green); }
+.reminder-teal   { --rc: var(--bright-teal); }
+.reminder-blue   { --rc: var(--bright-blue); }
+.reminder-purple { --rc: var(--bright-purple); }
+
+

@@ -1,15 +1,9 @@
-.sidebar {
-  width: 240px;
-  flex-shrink: 0;
-  background-color: #ebebeb;
-  border-right: 2px solid #000;
-}
-.sidebar-divider { border-bottom: 1px solid #333; }
+/* @import "global.css"; */
 
-.welcome-banner { background-color: #dcebd2; }
+/* replaced */
+/* .reminders-col { border-left: 2px dotted #000; } */
 
-.section-divider { border-bottom: 1px solid #999; }
-.reminders-col { border-left: 2px dotted #000; }
+.section-divider-col { border-left: 2px solid #999; }
 
 /* Quick Action & List Tiles */
 .action-tile,
@@ -30,7 +24,7 @@
 .list-tile {
   aspect-ratio: 1 / 1;
   max-width: 160px;
-  border: 2px solid #000;
+  border: 2px solid var(--solid-black); 
   border-radius: 22px;
   font-size: 5rem;
 }
@@ -46,7 +40,7 @@
   text-decoration: none;
   aspect-ratio: 1 / 1;
   max-width: 160px;
-  border: 2px solid #000;
+  border: 2px solid var(--solid-black);
   border-radius: 22px;
   font-size: 5rem;
 }
@@ -64,7 +58,7 @@
   border: 3px solid var(--rc);
   border-radius: 10px;
   overflow: hidden;
-  background: #fff;
+  background: var(--solid-white);
   font-size: 0.85rem;
 }
 .reminder-icon {
@@ -74,13 +68,13 @@
   align-items: center;
   padding: 0 0.75rem;
   font-size: 1.6rem;
-  color: #000;
+  color: var(--solid-black);
 }
 .reminder-title { flex-grow: 1; }
 .reminder-meta { padding-right: 0.75rem; text-align: right; white-space: nowrap; }
 
-/* Temp colors */
+/* Temp colors
 .reminder-yellow { --rc: #f2c94c; }
 .reminder-orange { --rc: #f2994a; }
 .reminder-blue   { --rc: #56ccf2; }
-.reminder-green  { --rc: #6fcf97; }
+.reminder-green  { --rc: #6fcf97; } */

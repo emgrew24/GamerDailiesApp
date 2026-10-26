@@ -10,7 +10,7 @@ let reminders = [
   { id: 5, title: "Do tasks",     icon: "bi-star-fill",  color: "teal",   when: "Every Monday",    time: "3:00 pm", active: false },
 ];
 
-const COLORS = ["yellow", "orange", "green", "pink", "teal", "blue"];
+const COLORS = ["pink", "orange", "yellow", "green", "teal", "blue", "purple"];
 const ICONS = [
   "bi-gift-fill", "bi-star-fill", "bi-heart-fill", "bi-alarm-fill",
   "bi-controller", "bi-trophy-fill", "bi-calendar-event-fill", "bi-bell-fill",
@@ -147,7 +147,7 @@ areaEl.addEventListener("click", (e) => {
 
   switch (btn.dataset.action) {
     case "edit":
-      window.location.href = `edit_reminder.html?id=${id}`;   // placeholder page name
+      window.location.href = `reminder.html?id=${id}`;   
       break;
     case "color":
     case "icon":

@@ -7,8 +7,11 @@
     
     <!-- Adding Bootstrap -->
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 
     <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/auth_pages.css">
 
 </head>
 <body>
@@ -18,36 +21,56 @@
     <!-- its pretty simple design wise -->
 
     <!-- there will be authentication involved of course -->
-    <section>
-        <main>
-            <div id="signInContainer" style="background-color: lightseagreen;">  <!-- temp color -->
-                <h1>Log In</h1>
-                <hr>
-                <form id="signInSection">
-                    <label for="name">Username:</label>
-                    <input type="text" id="username"><br>
+   <section id="signInPage" class="auth-page">
 
-                    <label for="password">Password:</label>
-                    <input type="password" id="password"><br><br>
+        <main class="auth-wrap">
+            <a href="profile_select.html" class="auth-back">
+            <i class="bi bi-arrow-left"></i> Profile Select
+            </a>
 
-                    <button type="submit" id="signInBtn"><strong>  <a href="dashboard.html">Sign In</a>  </strong></button><br>
-                    <!-- temp link straight to the dashboard -->
-                    <!-- REMOVE WHEN BACKEND WORK IS DONE -->
-                </form>
+            <div id="signInContainer" class="auth-card">
+            <h1 class="h4 text-center mb-4">Sign In</h1>
 
-                <p id="errorMsg" style="color:red;"></p>
-                <p id="successMsg" style="color:green;"></p>
+            <form id="signInSection" class="d-grid gap-3">
+                <div>
+                <label for="username" class="visually-hidden">Email or username</label>
+                <input type="text" id="username" class="form-control" placeholder="Email/Username"
+                        autocomplete="username" required>
+                </div>
 
-                <p>Don't have an account? <a href="sign_up.html">Sign Up Now!</a></p>
+                <div>
+                <label for="password" class="visually-hidden">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Password"
+                        autocomplete="current-password" required>
+                </div>
+
+                <div class="or-divider">Or</div>
+
+                <button type="button" id="googleBtn" class="btn btn-light border-dark fw-bold google-btn">
+                <i class="bi bi-google me-1"></i> Sign In With Google
+                </button>
+
+                <div class="d-flex justify-content-end">
+                <button type="submit" id="signInBtn" class="btn btn-info fw-bold px-4">Sign In</button>
+                </div>
+            </form>
+
+            <p id="errorMsg" class="text-danger small mt-3 mb-0" role="alert"></p>
+            <p id="successMsg" class="text-success small mt-3 mb-0" role="status"></p>
+
+            <p class="auth-switch mt-3 mb-0">
+                Don't have an account? <a href="sign_up.html" class="link-dark">Create an account</a>
+            </p>
             </div>
         </main>
 
-        <!-- Not sure if I want a footer like this yet -->
-        <footer>
-            <h3>&copy;2026 Shark Studios</h3>
-        </footer>
+        <!-- debating on having a footer like this -->
+        <footer class="auth-footer">&copy;2026 Shark Studios</footer>
 
-    </section>
+        </section>
+
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/sign_in.js"></script>
 
 </body>
 </html>

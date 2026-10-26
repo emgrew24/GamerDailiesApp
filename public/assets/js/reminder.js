@@ -1,7 +1,7 @@
 // THIS IS ALL PLACEHOLDER DATA FOR TESTING UNTIL BACKEND GETS SET UP
 const profile = { name: "SuperGamer24" };
 
-const COLORS = ["yellow", "orange", "green", "pink", "teal", "blue"];
+const COLORS = ["pink", "orange", "yellow", "green", "teal", "blue", "purple"];
 const ICONS = [
   "bi-alarm-fill", "bi-gift-fill", "bi-star-fill", "bi-heart-fill",
   "bi-controller", "bi-trophy-fill", "bi-calendar-event-fill", "bi-bell-fill",
@@ -10,6 +10,11 @@ const WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"];
 
 const state = { color: "teal", icon: "bi-alarm-fill", start: "", end: "", picking: "start" };
 let viewYear, viewMonth;
+
+// ?id=123 in the URL means we're editing an existing reminder
+const params = new URLSearchParams(window.location.search);
+const editId = params.has("id") ? Number(params.get("id")) : null;
+const isEditing = editId !== null;
 
 // Element references
 const formWrap = document.getElementById("formWrap");
@@ -37,6 +42,53 @@ function el(tag, className, text) {
 const pad = n => String(n).padStart(2, "0");
 const toISO = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const parseISO = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+
+/* ---------- Load + fill an existing reminder ---------- */
+
+// Placeholder: replace with a lookup in real data source later
+function loadReminder(id) {
+  const saved = [
+    { id: 1, title: "Game event!", description: "", color: "yellow", icon: "bi-gift-fill",
+      allDay: true, startDate: "2026-10-01", startTime: null, endDate: "2026-10-31", endTime: null,
+      repeat: "never", active: true },
+    { id: 2, title: "Do tasks", description: "Finish the weekly quests", color: "orange", icon: "bi-star-fill",
+      allDay: false, startDate: "2026-10-07", startTime: "15:00", endDate: "2026-10-07", endTime: "15:30",
+      repeat: "week", active: true },
+  ];
+  return saved.find(r => r.id === id) || null;
+}
+
+function fillForm(r) {
+  titleInput.value = r.title;
+  document.getElementById("descInput").value = r.description || "";
+
+  state.color = r.color;
+  state.icon = r.icon;
+  state.start = r.startDate;
+  state.end = r.endDate;
+  state.picking = "start";
+
+  startDate.value = r.startDate;
+  endDate.value = r.endDate;
+
+  allDayToggle.checked = r.allDay;
+  startTime.disabled = endTime.disabled = r.allDay;
+  if (!r.allDay) {
+    startTime.value = r.startTime;
+    endTime.value = r.endTime;
+  }
+
+  if (typeof r.repeat === "object") {          // custom repeat, e.g. { every: 3, unit: "day" }
+    repeatSelect.value = "custom";
+    document.getElementById("customInterval").value = r.repeat.every;
+    document.getElementById("customUnit").value = r.repeat.unit;
+    customRepeat.classList.remove("d-none");
+  } else {
+    repeatSelect.value = r.repeat;
+  }
+
+  showMonthOf(r.startDate);
+}
 
 /* ---------- Color + icon pickers ---------- */
 function applyColor() {
@@ -228,10 +280,20 @@ form.addEventListener("submit", (e) => {
 });
 
 /* ---------- Init ---------- */
-const today = toISO(new Date());
-state.start = state.end = today;
-startDate.value = endDate.value = today;
-showMonthOf(today);
+const existing = isEditing ? loadReminder(editId) : null;
+
+if (isEditing && !existing) {
+  window.location.href = "all_reminders.html";   // bad or stale id: nothing to edit
+} else if (existing) {
+  fillForm(existing);
+  document.title = "Edit Reminder";
+  document.getElementById("pageHeading").textContent = "Edit Reminder";
+} else {
+  const today = toISO(new Date());
+  state.start = state.end = today;
+  startDate.value = endDate.value = today;
+  showMonthOf(today);
+}
 
 buildPickers();
 applyColor();

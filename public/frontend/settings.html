@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer Dailies - Settings</title>
+
+    <!-- Adding Bootstrap -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Adding custom CSS -->
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/settings.css">
 </head>
 <body>
-    <h1>This is the settings page</h1>
-    <a href="dashboard.html">Back To Dashboard</a>
+
+    <!-- this is the settings page where users can customize their verion
+    of the app as they like -->
+
+    <!-- there will be profile settings, general user settings, theme settings,
+    and hopefully accessability settings  -->
+
+    <!-- the profile settings will include things like: profile image, edit email,
+    edit username, edit password, and delete account -->
+
+    <!-- still need to figure out what general user settings will be -->
+
+    <!-- theme settings will include things like: option to change to dark mode, option 
+    to create your own theme (colors), and maybe an option to change the font -->
+
+    <!-- accessability settings will unfortunatly be an afterthought but will hopefully be 
+    included if progress goes well -->
+
+    <div class="d-flex vh-100">
+
+        <!-- Sidebar Template -->
+        <gamer-dailies-sidebar></gamer-dailies-sidebar>
+
+        <!-- Main content -->
+        <main class="flex-grow-1 d-flex flex-column overflow-hidden px-4 pt-3 pb-4">
+
+            <div>
+                <a href="dashboard.html" class="text-dark text-decoration-none d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-arrow-left-circle fs-5"></i> Dashboard
+                </a>
+            </div>
+
+            <div class="settings-panel d-flex flex-grow-1 mt-3">
+
+            <!-- Category list -->
+            <div id="categoryList" class="settings-categories" role="tablist" aria-orientation="vertical"
+                aria-label="Settings categories"></div>
+
+                <!-- Settings for the selected category -->
+                <section id="settingsContent" class="settings-content flex-grow-1" role="tabpanel" tabindex="0">
+                    <h1 id="categoryTitle" class="h4 pb-1 settings-title"></h1>
+                    <div id="settingsList"></div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/templates/sidebar.js"></script>
+    <script src="../assets/js/settings.js"></script>
 </body>
 </html>

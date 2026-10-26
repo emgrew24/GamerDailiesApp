@@ -1,11 +1,3 @@
-.sidebar {
-  width: 240px;
-  flex-shrink: 0;
-  background-color: #ebebeb;
-  border-right: 2px solid #000;
-}
-.sidebar-divider { border-bottom: 1px solid #333; }
-
 /* Title + editor */
 .title-input { font-size: 3.5rem; line-height: 1.2; font-weight: 300; }
 .title-input::placeholder { color: #888; }
