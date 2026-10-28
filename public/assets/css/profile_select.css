@@ -1,3 +1,10 @@
+body{
+  /* background-image: url('../images/swirl_bg.png'); */ 
+  /* make a new background image for the page (this one is a bit cluttered) */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .app-logo {
   height: 72px;
   width: 72px;

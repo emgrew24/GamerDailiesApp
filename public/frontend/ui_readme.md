@@ -36,3 +36,4 @@ admin
 will just have the basic wireframe design so that I have an interface to work with
 and get the general frontend working.
 
+- admin pages have a general outline `10/28`
